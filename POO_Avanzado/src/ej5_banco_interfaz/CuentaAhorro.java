@@ -8,7 +8,7 @@ package ej5_banco_interfaz;
  *
  * @author toti
  */
-public class CuentaAhorro extends CuentaBancaria {
+public class CuentaAhorro extends CuentaBancaria implements Interesable{
     private double interes;
 
     public CuentaAhorro(Persona titular, double saldo) {
@@ -35,6 +35,12 @@ public class CuentaAhorro extends CuentaBancaria {
                     + "La cuenta no puede estar en negativo");
         }
         
+    }
+
+    @Override
+    public void calcularIntereses() {
+        double intereses;
+        intereses = super.getSaldo()*interes;
     }
     
 }

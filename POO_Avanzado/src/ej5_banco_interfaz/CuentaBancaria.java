@@ -8,7 +8,7 @@ package ej5_banco_interfaz;
  *
  * @author toti
  */
-public abstract class CuentaBancaria  {
+public abstract class CuentaBancaria implements Imprimible  {
     private int numero;
     private Persona titular;
     private double saldo;
@@ -49,7 +49,9 @@ public abstract class CuentaBancaria  {
         return saldo;
     }
     
-    
+    public void imprimir(){
+        
+    }
     
     
     
