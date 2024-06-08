@@ -1,0 +1,52 @@
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>210</x><y>80</y><w>210</w><h>150</h></coordinates><panel_attributes>PERSONA &lt;&lt;abstract&gt;&gt;
+--
+-dni: int
+-nombre: String
+-apellidos: String
+-fechaNacimiento: LocalDate
+-email: String
+--
++Persona(String,String,LocalDate)
++ generaEmail(): String &lt;&lt;abstract&gt;&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>60</x><y>300</y><w>210</w><h>150</h></coordinates><panel_attributes>MEDICO
+--
+-numeroColegiado: int
+-especialidad: Especialidad
+-pacientes: Paciente[][]
+--
++Medico(String,String,LocalDate)
++generaEmail(): String @Override</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>150</x><y>220</y><w>110</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>90;10;10;80</additional_attributes></element><element><id>UMLClass</id><coordinates><x>60</x><y>200</y><w>100</w><h>70</h></coordinates><panel_attributes>&lt;&lt;enum&gt;&gt;
+ESPECIALIDAD 
+--
+GENERAL
+ALERGIA</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>370</x><y>300</y><w>210</w><h>150</h></coordinates><panel_attributes>PACIENTE
+--
+-nuss: int
+-listaRecetas: ArrayList&lt;Receta&gt;
+--
++Persona(String,String,LocalDate)
++generaEmail(): String @Override</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>360</x><y>220</y><w>130</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;110;80</additional_attributes></element><element><id>UMLClass</id><coordinates><x>190</x><y>510</y><w>240</w><h>260</h></coordinates><panel_attributes>RECETA
+--
+-medico: Medico
+-paciente: Paciente
+-medicamento: Medicamento
+-fecha:LocalDate
+-duracion: int
+-dosis: double
+-caducado: boolean
+--
++Receta(Medico,Paciente,Medicamento,
+  LocalDate,int,double)
++toString(): String @Override</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>40</x><y>510</y><w>120</w><h>110</h></coordinates><panel_attributes>&lt;&lt;enum&gt;&gt;
+MEDICAMENTO 
+--
+ANTIBIOTICO
+ATIESTAMINICO
+IBUPROFENO
+PARACETAMOL</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>290</x><y>340</y><w>100</w><h>190</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;170;80;10</additional_attributes></element><element><id>Relation</id><coordinates><x>260</x><y>300</y><w>130</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>110;10;10;60</additional_attributes></element><element><id>UMLClass</id><coordinates><x>650</x><y>100</y><w>210</w><h>150</h></coordinates><panel_attributes>CENTRAL
+--
+_-mapaMedicos: HashMap&lt;Integer,Medico&gt;_
+_-mapaPacientes: HashMap&lt;Integer,Paciente&gt;_
+_-central: Central
+--
+_-Central()_
++generaEmail(): String @Override</panel_attributes><additional_attributes></additional_attributes></element></diagram>

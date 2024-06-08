@@ -1,0 +1,79 @@
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>240</x><y>440</y><w>210</w><h>140</h></coordinates><panel_attributes>PERSONA &lt;&lt;abstract&gt;&gt;
+--
+-dni: int
+-nombre: String
+-apellidos: String
+-fechaNacimiento: LocalDate
+-email: String
+--
++Persona(String,String,LocalDate)
++ generaEmail(): String &lt;&lt;abstract&gt;&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>90</x><y>620</y><w>210</w><h>140</h></coordinates><panel_attributes>MEDICO
+--
+-numeroColegiado: int
+-especialidad: Especialidad
+_-contadorMedico: int_
+--
++Medico(String,String,LocalDate)
++generaCodigo(): int
++generaEmail(): String @Override
++toString()
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>180</x><y>570</y><w>110</w><h>70</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>90;10;10;50</additional_attributes></element><element><id>UMLClass</id><coordinates><x>90</x><y>530</y><w>100</w><h>70</h></coordinates><panel_attributes>&lt;&lt;enum&gt;&gt;
+ESPECIALIDAD 
+--
+GENERAL
+ALERGIA</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>320</x><y>620</y><w>210</w><h>130</h></coordinates><panel_attributes>PACIENTE
+--
+-nuss: int
+--
++Persona(String,String,LocalDate)
++generaNUSS(String): int
++generaEmail(): String @Override
++toString()
++mostrarFicha()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>390</x><y>570</y><w>50</w><h>70</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;30;50</additional_attributes></element><element><id>UMLClass</id><coordinates><x>550</x><y>440</y><w>240</w><h>190</h></coordinates><panel_attributes>RECETA
+--
+-medico: Medico
+-paciente: Paciente
+-medicamento: Medicamento
+-fecha:LocalDate
+-duracion: int
+-dosis: double
+-caducado: boolean
+--
++Receta(Medico,Paciente,Medicamento,
+  LocalDate,int,double)
++toString(): String @Override</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>670</x><y>660</y><w>120</w><h>110</h></coordinates><panel_attributes>&lt;&lt;enum&gt;&gt;
+MEDICAMENTO 
+--
+ANTIBIOTICO
+ATIESTAMINICO
+IBUPROFENO
+PARACETAMOL</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>370</x><y>90</y><w>310</w><h>300</h></coordinates><panel_attributes>CENTRAL
+--
+_-mapaMedicos: HashMap&lt;Integer,Medico&gt;_
+_-mapaPacientes: HashMap&lt;Integer,Paciente&gt;_
+_-mapaCitas: HashMap&lt;Medico,Paciente[3][5]&gt;_
+_-listaRecetas: ArrayList&lt;Receta&gt;_
+_-central: Central_
+--
+-Central()
+_+getMedico(int): Medico_
+_+identificarMedico(int): boolean_
+_+getPaciente(int): Medico_
+_+identificarPaciente(int): boolean_
+_+listarMedicos(): void_
+_+listarPacientes(): void_
+_+altaReceta(Medico,Paciente,LocalDate,int,double)_
+_+mostrarRecetas(Paciente)_
+_+añadirCita(Medico,int,int,Paciente): boolean_
+_+liberarCita(Medico,int,int): boolean_
+_+getPaciente(Medico,int,int): Paciente_</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>90</x><y>290</y><w>220</w><h>60</h></coordinates><panel_attributes>UTILIDADES
+--
+_+limpiarAcentos(String): String_</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>610</x><y>380</y><w>70</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;50;60</additional_attributes></element><element><id>UMLClass</id><coordinates><x>90</x><y>90</y><w>240</w><h>140</h></coordinates><panel_attributes>SMS
+--
+_+main(String[]): void_
+_+farmacia(Paciente): void_
+_+generarReceta(Medico,Paciente): void_
+_+menuMedico(Medico): void_
+_+menPaciente(Paciente): void_
+_+pedirCita(Paciente): void_
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>350</x><y>380</y><w>80</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>60;10;10;60</additional_attributes></element><element><id>Relation</id><coordinates><x>440</x><y>460</y><w>130</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>110;10;10;10</additional_attributes></element></diagram>
